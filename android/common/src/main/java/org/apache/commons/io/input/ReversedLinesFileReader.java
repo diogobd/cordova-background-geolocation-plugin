@@ -25,7 +25,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.nio.charset.UnsupportedCharsetException;
 
-import org.apache.commons.io.Charsets;
+import org.apache.commons.io.CharsetsPlugin;
 
 /**
  * Reads lines in a file reversely (similar to a BufferedReader, but starting at
@@ -94,7 +94,7 @@ public class ReversedLinesFileReader implements Closeable {
         currentFilePart = new FilePart(totalBlockCount, lastBlockLength, null);
 
         // --- check & prepare encoding ---
-        Charset charset = Charsets.toCharset(encoding);
+        Charset charset = CharsetsPlugin.toCharset(encoding);
         CharsetEncoder charsetEncoder = charset.newEncoder();
         float maxBytesPerChar = charsetEncoder.maxBytesPerChar();
         if(maxBytesPerChar==1f) {
@@ -141,7 +141,7 @@ public class ReversedLinesFileReader implements Closeable {
      *             supported.
      */
     public ReversedLinesFileReader(final File file, final int blockSize, final String encoding) throws IOException {
-        this(file, blockSize, Charsets.toCharset(encoding));
+        this(file, blockSize, CharsetsPlugin.toCharset(encoding));
     }
 
     /**
