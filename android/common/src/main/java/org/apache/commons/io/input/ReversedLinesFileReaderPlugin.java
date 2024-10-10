@@ -52,19 +52,19 @@ public class ReversedLinesFileReaderPlugin implements Closeable {
     private boolean trailingNewlineOfFileSkipped = false;
 
     /**
-     * Creates a ReversedLinesFileReader with default block size of 4KB and the
+     * Creates a ReversedLinesFileReaderPlugin with default block size of 4KB and the
      * platform's default encoding.
      *
      * @param file
      *            the file to be read
      * @throws IOException  if an I/O error occurs
      */
-    public ReversedLinesFileReader(final File file) throws IOException {
+    public ReversedLinesFileReaderPlugin(final File file) throws IOException {
         this(file, 4096, Charset.defaultCharset().toString());
     }
 
     /**
-     * Creates a ReversedLinesFileReader with the given block size and encoding.
+     * Creates a ReversedLinesFileReaderPlugin with the given block size and encoding.
      *
      * @param file
      *            the file to be read
@@ -76,7 +76,7 @@ public class ReversedLinesFileReaderPlugin implements Closeable {
      * @throws IOException  if an I/O error occurs
      * @since 2.3
      */
-    public ReversedLinesFileReader(final File file, final int blockSize, final Charset encoding) throws IOException {
+    public ReversedLinesFileReaderPlugin(final File file, final int blockSize, final Charset encoding) throws IOException {
         this.blockSize = blockSize;
         this.encoding = encoding;
 
@@ -126,7 +126,7 @@ public class ReversedLinesFileReaderPlugin implements Closeable {
     }
 
     /**
-     * Creates a ReversedLinesFileReader with the given block size and encoding.
+     * Creates a ReversedLinesFileReaderPlugin with the given block size and encoding.
      *
      * @param file
      *            the file to be read
@@ -140,7 +140,7 @@ public class ReversedLinesFileReaderPlugin implements Closeable {
      *             thrown instead of {@link UnsupportedEncodingException} in version 2.2 if the encoding is not
      *             supported.
      */
-    public ReversedLinesFileReader(final File file, final int blockSize, final String encoding) throws IOException {
+    public ReversedLinesFileReaderPlugin(final File file, final int blockSize, final String encoding) throws IOException {
         this(file, blockSize, CharsetsPlugin.toCharset(encoding));
     }
 
