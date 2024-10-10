@@ -33,7 +33,7 @@ import org.apache.commons.io.CharsetsPlugin;
  *
  * @since 2.2
  */
-public class ReversedLinesFileReader implements Closeable {
+public class ReversedLinesFileReaderPlugin implements Closeable {
 
     private final int blockSize;
     private final Charset encoding;
